@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: SearchService
+    
+server:
+  port: 8081
+    
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: swisit
+      username: superAdmin
+      password: admin123
+      port: 27017
+  
+    

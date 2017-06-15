@@ -1,0 +1,15 @@
+url: https://www.googleapis.com/customsearch/v1?q=
+spring:
+ data:
+  mongodb:
+   authentication-database: admin
+   database: swisit
+   username: superAdmin
+   password: admin123
+ application:
+   name: SearchService
+server:
+ port: 8080
+
+  
+ 
