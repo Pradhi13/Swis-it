@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonIgnoreProperties(ignoreUnknown=true)
 @Document
 @JsonSerialize
-public class QueryBean{
+public class QueryBean extends ResourceSupport{
 	
 	
 	@JsonProperty("domain")
@@ -28,7 +28,7 @@ public class QueryBean{
 	
 	
 	@JsonProperty("concept")
-	private String query;
+	private List<String> query;
 	
 	@JsonProperty("engineid")
 	private List<LinkedHashMap<String,String>> engineId;
@@ -44,10 +44,10 @@ public class QueryBean{
 	public void setExactTerm(String exactTerm) {
 		this.exactTerm = exactTerm;
 	}
-	public String getQuery() {
+	public List<String> getQuery() {
 		return query;
 	}
-	public void setQuery(String query) {
+	public void setQuery(List<String> query) {
 		this.query = query;
 	}
 	public List<LinkedHashMap<String, String>> getEngineId() {

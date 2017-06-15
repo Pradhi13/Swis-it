@@ -45,7 +45,7 @@ public class SearchService implements SearchServiceInterface {
 
 	QueryBean q = new QueryBean();
 	String domain="";
-	String concept="";
+	List<String> concept;
 	List<LinkedHashMap<String,String>> engineid = new ArrayList<LinkedHashMap<String,String>>();
 	String url1;
 	String key = "engineid";
@@ -59,10 +59,10 @@ public class SearchService implements SearchServiceInterface {
 			for(QueryBean qb: queryRepository.findAll())
 			{
 				domain = qb.getExactTerm();
-				System.out.println(domain);
 				concept = qb.getQuery();
-				System.out.println(concept);
-				String query = domain+" "+concept;	
+				
+				//System.out.println(concept.get(0));
+				String query = domain+" "+concept.get(0);	
 				engineid = qb.getEngineId();
 			
 				for(Map<String, String> map : engineid){

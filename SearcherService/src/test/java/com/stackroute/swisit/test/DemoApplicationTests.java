@@ -1,4 +1,4 @@
-/*package com.swisit.search;
+package com.stackroute.swisit.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +12,10 @@ public class DemoApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+	
+	@Test
+	public void fire() {
+		
+	}
 
 }
-*/

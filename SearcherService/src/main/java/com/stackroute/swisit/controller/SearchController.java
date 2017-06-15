@@ -42,30 +42,38 @@ public class SearchController {
 		List<SwisitBean> all=linkHateoes.getalllinks(alldata);
 		return all;
 	}
-	
-	@RequestMapping(value="urlpost", method=RequestMethod.POST)
-	public ResponseEntity save() throws JsonProcessingException
-	{
-		try
-		{
-		searchService.save();
-		}
-		catch (SearcherServiceException e) {
-            
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-		}
-		Map msgMap = new HashMap<String,String>();
-	    msgMap.put("message","Data Inserted successsfully");
-	    return new ResponseEntity<Map<String,String>>(msgMap, HttpStatus.OK);
-	
-	}
+//	
+//	@RequestMapping(value="urlpost", method=RequestMethod.POST)
+//	public ResponseEntity save() throws JsonProcessingException
+//	{
+//		try
+//		{
+//		searchService.save();
+//		}
+//		catch (SearcherServiceException e) {
+//            
+//            return new ResponseEntity(HttpStatus.NOT_FOUND);
+//		}
+//		Map msgMap = new HashMap<String,String>();
+//	    msgMap.put("message","Data Inserted successsfully");
+//	    return new ResponseEntity<Map<String,String>>(msgMap, HttpStatus.OK);
+//	
+//	}
 	
 	
 	@RequestMapping(value="urlpostquery", method=RequestMethod.POST)
 	public ResponseEntity saveQuery(@RequestBody QueryBean queryBean)
 	{
 		searchService.saveQuery(queryBean);
-		
+		try {
+			searchService.save();
+		} catch (SearcherServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Map msgMap = new HashMap<String,String>();
 	    msgMap.put("message","Data Inserted successsfully");
@@ -77,8 +85,9 @@ public class SearchController {
 	@RequestMapping(value="urlgetquery", method=RequestMethod.GET)
 	public Iterable<QueryBean> getQuery()
 	{
-		
-		return searchService.getQuery();
+		List<QueryBean> alldata = (List<QueryBean>) searchService.getQuery();
+		List<QueryBean> all=linkHateoes.getallquery(alldata);
+		return all;
 	}
 	
 	

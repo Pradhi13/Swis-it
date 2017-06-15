@@ -3,6 +3,7 @@ package com.stackroute.swisit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
@@ -11,6 +12,7 @@ import com.stackroute.swisit.domain.SwisitBean;
 
 @SpringBootApplication
 @EnableMongoRepositories
+@EnableEurekaClient
 public class SwisitApplication {
 
 	
